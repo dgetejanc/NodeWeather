@@ -11,7 +11,7 @@ const CFonts = require('cfonts');
 var Table = require('cli-table3');
 
 //I should move the APIKey to a .ENV file. Leaving it here for simplicity
-let apiKey = "*************";
+let apiKey = "**********";
 
 //If no arguement is passed from the console it just defaults to sydney.
 var city = argv.c || "sydney";
@@ -78,14 +78,15 @@ Promise.all(urls.map(url =>
             let today = new Date();
             let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
             let dateSplit = d.dt_txt.split(" ");
-            if((dateSplit[0] !== date) && (dateSplit[1] == "12:00:00"))
+            
+            //Just took the mid day temp and displayed it. 
+            if((dateSplit[0] !== date) && (dateSplit[1] == "03:00:00"))
             table.push(
-                [getDayOfTheWeek(d.dt_txt) + " @ " + dateSplit[1], temp + ` ${u}`]
+                [getDayOfTheWeek(d.dt_txt), temp + ` ${u}`]
             );
         });
 
         console.log(table.toString());
-
     })
 
 function getDayOfTheWeek(date){
