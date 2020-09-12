@@ -19,7 +19,7 @@
   "dependencies": {
     "cfonts": "^2.8.0",
     "cli-table3": "^0.5.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "yargs": "^15.3.0"
   }
 }
